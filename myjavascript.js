@@ -1,12 +1,16 @@
 "use strict";
-let prev = 1;
-function calculate(x) {
-  return Math.round(x / prev);
+function calculate(y = 1) {
+  let result = y;
+  return function(x) {
+    result = Math.round(x / result);
+    return result ;
   };
+};
 
-console.log(prev = calculate(3));
-console.log(prev = calculate(10));
-console.log(prev = calculate(20));
+
+const divide = calculate(2);
+console.log(divide(7));
+console.log(divide(45));
 
 
 
